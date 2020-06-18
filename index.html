@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習作業1</title>
+    <style type="text/css">
+        * {
+            /*消除網頁邊框*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(41, 19, 59);
+            position: relative;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+            background-color: rgb(41, 19, 59);
+            display: block;
+            /*規定元入以區塊方式呈現*/
+            position: absolute;
+            /*相對於他的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .btn::before {
+            /*在原本的元素「之前」加入內容*/
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #aaa;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #aaaaaa, 0px -8px 0px #aaa;
+            /*影子*/
+        }
+        
+        nav {
+            width: 30%;
+            height: 100vh;
+            /*view height是螢幕可是範圍高度的百分比*/
+            background-color: #251323;
+            position: absolute;
+            top: 50px;
+            left: -100%;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: #e4a9f0;
+            padding: 10px 20px;
+            border-bottom: 1px solid #e4a9f0;
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: rgb(52, 9, 58);
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 36px;
+            margin: 0 0px 10px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(225, 179, 230);
+        }
+        
+        .title p {
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: left;
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 100%;
+        }
+        
+        .item .b {
+            /*設置全圖片*/
+            width: 30%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: #ffa;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子  又稱flexbox*/
+            }
+            .btn {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .pic,
+        .two .item .text {
+            width: 50%;
+            margin: 0;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        
+        .a {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(170, 124, 255);
+        }
+        
+        .a p {
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .p h3 {
+            font-size: 24px;
+            text-align: left;
+            margin: 20px 0px 10px;
+        }
+        
+        .p p {
+            margin: 0px 0px 20px;
+        }
+        
+        .p {
+            background-color: rgb(191, 191, 235);
+            color: rgb(35, 5, 63);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" name="" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="https://images4.alphacoders.com/975/975508.jpg" width="60" height="40">
+        </h1>
+        <label for="menu" class="btn"> 
+            <span>選單</span>
+        </label>
+        <nav>
+            <a href="#1">關於漫威</a>
+            <a href="#2">人物簡介</a>
+            <a href="#3">即將上映：變種人 The New Mutants</a>
+            <a href="#4">復仇者聯盟四 Avengers: Endgame</a>
+        </nav>
+    </div>
+
+    <marquee direction="right" height="40" scrollamount="5" behavior="alternate"><img src="https://images5.alphacoders.com/663/663098.jpg" height="30"></marquee>
+
+    <div class="bg">
+        <img src=https://images3.alphacoders.com/949/949023.jpg>
+    </div>
+    <div class="a">
+        <p>漫威不僅僅是一部電影8，他是一個活在每人心中的英雄。</p>
+    </div>
+
+    <div class="two ">
+        <div class="item-group "></div>
+        <div class="item ">
+            <div class="pic ">
+                <img src=https://images5.alphacoders.com/532/thumb-350-532651.jpg height="550">
+            </div>
+            <div class="text ">
+                <h3>MARVEL</h3>
+                <p>Marvel Cinematic Universe (MCU) is an overhead world and a common world composed of a series of movies independently produced by Marvel Comic Studio based on the characters in Marvel Comics publications. This common world, like the Marvel
+                    Universe in comics, is established by common elements, settings, performances and characters through cross-border works, and is an officially recognized multiverse with other comics, movies and animation series. Phil Gresson, played
+                    by Clark Gregg, is an original character designed for the Marvel Cinematic Universe and the only character that appears in all film and television formats. The films in the Marvel Cinematic Universe have achieved great success in both
+                    industry reviews and commercial revenues. The entire series reached the first place in the global series of box office, and the single movie "Avengers: The Final Battle" ranked Ranked first in the world's highest box office revenue
+                    list. In addition to movies, the series also extends to comic books, a series of short films called "Marvel One-Shots", and the TV series "Agents of SHIELD" and "Agent Carter" and "Defender of the Union" series of TV series. The origin
+                    of the Marvel Cinematic Universe movie was "Iron Man" released in 2008, until the 2012 movie "The Avengers" completed the "first stage." The next year's movie "Iron Man 3" opened the "second phase" of the series until the movie "Antman"
+                    released in 2015. The Marvel Cinematic Universe is currently in the "third stage" of the 2016 movie "Captain America 3: Civil War of Heroes". The last movie of this stage is the 2019 "Spiderman: A Day From Home". A total of 23 films
+                    in the first three stages are collectively called the "Unlimited Legend" series. The film "Black Widow" will open the "fourth stage" of the series. The TV series further expanded the Marvel Cinematic Universe, and the TV series "Agents
+                    of S.H.I.E.L.D." was launched on the ABC in the 2013-14 broadcast season. Then in 2015, the online streaming platform Netflix launched the TV series "Demon", in 2017 Hulu launched the TV series "Legend of the Boys", and in 2018 the
+                    cable TV Freeform launched the TV series "Cape and Dagger". In December 2017, the Walt Disney Company, a subsidiary of Marvel Pictures, acquired part of the property rights of the Flowserve Group for $52.4 billion, including the X-Men,
+                    Marvel 4 Superman and other series of copyrights owned by 21st Century Flowserve, which were also recovered. Marvel Pictures under the Walt Disney Company. On December 14, 2017 US time, The Walt Disney Company announced that X-Men,
+                    Deadpool, Marvel 4 Superman and other characters will officially return to the Marvel Cinematic Universe.
+
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <a name="1">
+        <div class="title ">
+            <h2>關於漫威</h2>
+            <p>漫威電影宇宙（英語：Marvel Cinematic Universe，簡稱MCU）是由漫威漫畫工作室基於漫威漫畫出版物中的角色獨立製作的一系列電影所構成的架空世界和共同世界。該共同世界像漫畫中的漫威宇宙一樣，是由共同的元素、設定、表演和角色通過跨界作品所建立的，並且與其它漫畫、電影與動畫等系列同屬一個官方認可的多元宇宙。克拉克·格雷格飾演的菲爾·考森是一名為漫威電影宇宙設計的原創角色，也是唯一一個在所有影視形式中均有出現的角色。 漫威電影宇宙中的電影在業界評論和商業收益兩方面都獲得很大的成功，整個系列達到的全球系列電影票房排行第一位，其中單部電影《復仇者聯盟：終局之戰》位列全球最高票房收入列表第一位。除了電影之外，這個系列也擴展到漫畫書，一系列被稱為「Marvel
+                One-Shots」的短片，以及電視劇《神盾局特工》與《卡特探員》及《捍衛者聯盟》系列電視劇。 漫威電影宇宙的起源電影是2008年上映的《鋼鐵人》，直至2012年電影《復仇者聯盟》完成「第一階段」。次年上映的電影《鋼鐵人3》開啟系列的「第二階段」，直至2015年上映的電影《蟻人》。漫威電影宇宙目前處於2016年電影《美國隊長3：英雄內戰》開啟的「第三階段」，該階段的最後一部電影為2019年的《蜘蛛人：離家日》。前三個階段共計23部電影合稱為「無限傳奇」系列。電影《黑寡婦》將開啟系列的「第四階段」。
+                電視劇系列進一步擴充了漫威電影宇宙，於2013－14播出季在美國廣播公司推出電視劇《神盾局特工》。接著於2015年在線上串流媒體平台網飛推出電視劇《夜魔俠》，2017年在Hulu推出電視劇《離家童盟》，2018年在有線電視臺Freeform推出電視劇《斗篷與匕首》。 2017年12月，漫威影業所屬華特迪士尼公司以524億美元收購福斯集團旗下部分產權，包括由21世紀福斯所擁有的X戰警、驚奇4超人等系列版權，也一併收回華特迪士尼公司旗下漫威影業。美國時間2017年12月14日，華特迪士尼公司宣布X戰警、死侍、驚奇4超人等角色，將正式回歸漫威電影宇宙。
+            </p>
+        </div>
+    </a>
+    <a name="2">
+        <div class="item-group ">
+
+            <div class="item ">
+                <div class="pic ">
+                    <img src="https://images6.alphacoders.com/912/912868.png">
+                </div>
+                <div class="text ">
+                    <h3>蜘蛛人 Spider-Man</h3>
+                    <p>彼得·班傑明·帕克（Peter Benjamin Parker）在一次課外活動中意外的被一隻受過放射性感染的蜘蛛咬傷後，獲得具有蜘蛛一般的特殊能力。改變彼得·帕克的一生，決定成為蜘蛛人的關鍵，就在於一場搶劫事故中皇后區的班叔（Uncle Ben）遭人殺害，彼得認為這是他的錯誤，因此選擇成為蜘蛛人來拯救世界上更多的人。李和迪特科將這個角色構想成一個被他的梅嬸嬸和班叔撫養長大的孤兒；並且，因為身為一個青少年，他除了面對那些超級英雄該肩負的責任，同時也必須應付一些青春期時普遍會遇到的麻煩。蜘蛛人的創造者們賦予了他超強的力量與敏捷性、能黏附在大部分表面上的能力、可以對危險快速做出反應的蜘蛛感應（Spider-Sense）以及讓他藉著使用自己發明並命名為「蛛網發射器」的裝置射出蜘蛛絲，使他得以對抗反派們。</p>
+                </div>
+            </div>
+
+            <div class="item ">
+                <div class="pic">
+                    <img src="https://images6.alphacoders.com/939/939343.jpg">
+                </div>
+                <div class="text ">
+                    <h3>猛毒 Venom</h3>
+                    <p>《猛毒》（英語：Venom，中國大陸譯《毒液：致命守護者》，香港譯《毒魔》，新加坡譯《猛毒》）是一部於2018年上映的美國超級英雄電影，由漫威漫畫旗下角色猛毒故事改編，哥倫比亞影業製作，並由索尼影視娛樂發行。本片為「索尼影業漫威角色宇宙」的第一部電影，由魯賓·弗來舍執導，史考特·羅森堡、傑夫·皮克納、凱莉·馬賽爾和威爾·貝爾編劇，由湯姆·哈迪、蜜雪兒·威廉絲、里茲·阿邁德、史考特·荷茲和雷德·史考特主演。 有關猛毒電影的發展，首初是從2007年由製片人阿維·阿拉德開始。經過不同的疊代後，限制級獨立電影於在2017年3月被證實，目的是為了開創一個以索尼擁有電影版權的漫威漫畫角色的新共享宇宙，儘管索尼有意為《蜘蛛人：返校日》共享世界觀，這是由於索尼和漫威影業之間的特殊交易而在漫威電影宇宙中所設。2017年5月，弗來舍、哈迪加入電影，羅森堡和皮克納為電影編劇。主要攝影於2017年10月在亞特蘭大、紐約和舊金山進行。
+                        《猛毒》於2018年10月1日在西木區的攝政村影院首映，2018年10月5日在美國院線上映。續集預定於2021年6月25日在美國上映。
+                    </p>
+                </div>
+            </div>
+            <div class="item ">
+                <div class="pic ">
+                    <img src="https://images.alphacoders.com/994/994711.jpg">
+                </div>
+                <div class="text ">
+                    <h3>鋼鐵人 Iron-Man</h3>
+                    <p>東尼·史塔克生於紐約長島，父親為著名的企業兼發明家霍華·史塔克。小時候即展現驚人的天賦，僅15歲時就進入麻省理工學院電子工程學系大學部就讀，於19歲時以最高分的成績獲得雙碩士學位。21歲時他的雙親死於車禍意外（實際上是被九頭蛇洗腦後的酷寒戰士襲擊），史塔克繼承了父親擁有的史塔克企業（Stark Industries）。史塔克接管公司後作的第一件事就是買下製造他父母座車上瑕疵煞車系統的公司並修正其設計上的缺陷。 在一次前往越南（真人電影為波灣戰爭時）視察自己公司新的微型晶片對美軍在戰場上助益的旅程中，史塔克誤入陷阱而被俘虜。俘虜他的人是一個越南軍閥王秋，史塔克的心臟由於被陷阱的碎片插入而命在旦夕，唯一的活路就是和同為俘虜的著名物理學家何伊沈）合作為王秋製造武器。不過史塔克與伊沈私下利用工廠祕密設計並製造了一套動力裝甲，這一副鐵製外骨骼式護甲賦予史塔克巨大的力量與其他能力，不但能讓他的心臟繼續跳動，還可以讓他逃脫。伊沈犧牲自己的生命讓史塔克有足夠的時間換上這副笨重的裝甲，成為鋼鐵人的史塔克則殺死了王秋與其手下。
+                        在逃亡的途中，鋼鐵人遇見了一名受傷的美國空軍直升機飛行員吉姆羅德斯（Jim Rhodes），鋼鐵人自稱是史塔克的保鏢，兩人合力抵禦尾隨而來的北越追兵直到抵達美軍前線。 在回到美國本土後史塔克繼續改良這副裝甲，建立起冒險家與鋼鐵人的雙重身份。他並且大幅的拓展了父親留下來的史塔克企業，後來改名為史塔克國際企業（Stark International）。</p>
+                </div>
+            </div>
+            <div class="item ">
+                <div class="pic ">
+                    <img src="https://images4.alphacoders.com/673/673851.jpg">
+                </div>
+                <div class="text ">
+                    <h3>雷神索爾</h3>
+                    <p>《雷神索爾》（英語：Thor，中國大陸譯《雷神》，香港譯《雷神奇俠》）是一部於2011年上映的美國超級英雄電影，由肯尼斯·布萊納執導，艾許利·米勒、柴克·史坦茲與唐·佩恩編劇，劇情圍繞著漫威漫畫旗下超級英雄索爾展開。該片由漫威工作室製作，並由派拉蒙影業發行，為漫威電影宇宙系列中的第四部作品。《雷神索爾》的主演包含克里斯·漢斯沃、娜塔莉·波曼、湯姆·希德斯頓、史戴倫·史柯斯嘉、科魯姆·費奧瑞、雷·史蒂文森、伊卓瑞斯·艾巴、凱特·丹寧絲、蕾妮·羅素與安東尼·霍普金斯等人，劇情講述神界阿斯嘉的儲君索爾在重新點燃一場古老戰役後，被剝奪一切並放逐到地球，其弟洛基企圖趁機篡奪王位，索爾必須證明自己配得上雷神之鎚，重拾雷神的力量。
+                        1991年，山姆·萊米開始籌拍該片，但很快就放棄。《雷神索爾》從此被擱置了多年，製片進度一直到了2006年才有起色。馬修·范恩是該片最初的導演，但後來因合約到期而換成肯尼斯·布萊納。選角作業於2008年10月至2011年1月間進行。《雷神索爾》於2010年1月開拍，同年5月殺青，取景地點主要位在美國加利福尼亞州和新墨西哥州。該片在後期製作中轉為3D。 《雷神索爾》於2011年4月17日在澳洲的雪梨首映，接著於5月6日在美國院線上映。該片所獲評價整體而言偏向正面，影評人多稱讚漢斯沃、艾巴與荷普金斯的演技和片中特效，而部分情節、設計則遭影評人詬病。該片也相當賣座，全球總票房逾4.49億美元。續集《雷神索爾2：黑暗世界》於2013年11月8日在北美院線上映。
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+
+    <a name="3">
+        <div class=video-container>
+            <iframe width="853" height="480" src="https://www.youtube.com/embed/gWsJGM3MqVk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="p ">
+            <h3>漫威告別蜘蛛俠：你需要知道的三個問題</h3>
+            <p>「蜘蛛俠」要告別目前的漫威宇宙了。索尼（Sony）公司表示，對未來無法與迪士尼（Disney）繼續合作《蜘蛛俠》系列電影表示「失望」。 而這意味著我們在漫威（Marvel）今後的電影中可能無法再看到湯姆·赫蘭德（Tom Holland，又譯霍蘭德）的身影。 《蜘蛛俠》電影版權歸索尼所有，但作為一個超級英雄，湯姆·赫蘭德飾演的蜘蛛俠也出現在漫威的《復仇者聯盟：終局之戰》（Avengers: Endgame）等電影中。這一切都是因為索尼與漫威影業所屬的迪士尼之間達成的協議，但雙方最近談判新協議時無法達成共識。
+                索尼稱，希望未來「或許發生變化」，並在推特上發表聲明，感謝漫威影業總裁凱文·費奇（Kevin Feige）的「幫助和指導」。
+                <br><br> 一、蜘蛛俠命運如何？
+                <br><br> 這個問題十分複雜。 首先簡單介紹一下蜘蛛俠。他是漫威漫畫中的一個角色，但1999年索尼買下了《蜘蛛俠》的電影版權。 在此之前，索尼已經製作五部以蜘蛛俠為主人公的電影，其中三部由托比·馬奎爾（Tobey Maguire）主演，兩部由安德魯·加菲爾德（Andrew Garfield）主演。 2015年，索尼與迪士尼及漫威影業達成意向協議，從此將彼得·帕克（Peter Parker）和他的蜘蛛俠身份一同帶入漫威宇宙。這份協議使得迪士尼可以共同製作《蜘蛛俠》電影，並與索尼共享影片收入。
+                之後蜘蛛俠出現在以下五部漫威電影中： 《美國隊長：英雄內戰》（Captain America: Civil War） 《蜘蛛俠：英雄歸來》（Spider-Man: Homecoming，又譯作《返校日》、《強勢回歸》） 《復仇者聯盟：無限之戰》（Avengers: Infinity War） 《復仇者聯盟：終局之戰》 《蜘蛛俠：英雄遠征》（Spider-Man: Far From Home，又譯作《決戰千里》、《離家日》）
+                <br><br> 二、《蜘蛛俠》電影今後命運如何？
+                <br><br> 這並不代表我們不會再見到湯姆·赫蘭德版的《蜘蛛俠》。BBC廣播一台（Radio 1）及1Xtra的電影評論員阿里·普拉姆（Ali Plumb）指出，湯姆與索尼仍有兩部電影合約在手，因此「這並不意味著我們再也看不到他了」，但接下來的電影可能會有些不一樣。 「新的索尼獨立製作的《蜘蛛俠》電影會面臨更大挑戰，他們的風險在於是否會跟之前迪士尼製作的《蜘蛛俠》電影一樣好看。」但他認為，這對索尼也是一個機會，即便索尼現在不能再使用漫威宇宙的其他超級英雄角色，他們仍然可以做更多「冒險性」與「前衛」的嘗試。
+                索尼不擁有其他任何迪士尼漫威角色的版權，因此未來鋼鐵俠（Iron Man，又譯鋼鐵人）、美國隊長、雷神索爾（Thor）、綠巨人浩克（Hulk，又譯變形俠醫）及其他超級英雄應該不會出現在《蜘蛛俠》電影中。 娛樂新聞網站Deadline報道稱，過去數月間迪士尼與索尼無法就一系列電影今後的資金條款達成一致。 而漫威在上月動漫展（Comic-Con）期間公布的下階段影片計劃上，也沒有《蜘蛛俠》的身影。
+                <br><br> 三、漫威世界有何反應？
+                <br><br> 「鷹眼」（Hawkeye）的扮演者傑瑞米·雷納（Jeremy Renner）在Instagram上發帖，呼籲「蜘蛛俠」重回漫威。另一個超級英雄「死侍」（Deadpool）的扮演者萊恩·雷諾茲（Ryan Reynolds）也在推特上提到此事。有粉絲問他是否能看到「蜘蛛俠」與「死侍」共同出現的電影，他回答稱，「可以，但只能在我心裏」。索尼與迪士尼的分裂同時還在網民中間引發巨大反應，不少人對索尼表示憤怒，也有粉絲擔心湯姆·赫蘭德狀態。 一些人開始發起話題「抵制索尼」（#BoycottSony），稱他們不會支持今年漫威的其他影片。同時，「拯救蜘蛛俠」（#SaveSpidey）的話題也開始在網上積累人氣。
+                許多粉絲還開始轉發去年去世的蜘蛛俠創造者斯坦·李（Stan Lee，又譯史丹‧李）的一則推文，推文中稱湯姆·赫蘭德是「蜘蛛俠」的絶佳人選，並問道「我的朋友湯姆最近怎麼樣？」（How is my friend Tom doing?）
+            </p>
+        </div>
+    </a>
+
+    <a name="4">
+        <div class=video-container>
+            <iframe width="1045" height="434" src="https://www.youtube.com/embed/ZrB7EdfPBJU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="p ">
+            <h3>影片觀賞</h3>
+            <p>相信這集是大家最感動的一幕，最後再讓大家回味一下。</p>
+        </div>
+    </a>
+
+    <div class="footer ">
+        &copy; 漫威辦權所有，想看完整版去購買，支持正版。
+    </div>
+
+
+</body>
+
+</html>
