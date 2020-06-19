@@ -16,14 +16,13 @@
         
         .header {
             height: 50px;
-            background-color: rgb(41, 19, 59);
+            background-color: rgb(0, 0, 0);
             position: relative;
         }
         
         .btn {
             width: 40px;
             height: 40px;
-            background-color: rgb(41, 19, 59);
             display: block;
             /*規定元入以區塊方式呈現*/
             position: absolute;
@@ -48,23 +47,24 @@
             position: absolute;
             height: 2px;
             left: 2px;
-            width: 36px;
-            background-color: #aaa;
+            width: 30px;
+            background-color: rgb(255, 255, 255);
             top: 0;
             bottom: 0;
             margin: auto;
-            box-shadow: 0px 8px 0px #aaaaaa, 0px -8px 0px #aaa;
+            box-shadow: 0px 8px 0px rgb(255, 255, 255), 0px -8px 0px rgb(255, 255, 255);
             /*影子*/
         }
         
         nav {
-            width: 30%;
-            height: 100vh;
+            width: 100%;
+            height: 80vh;
             /*view height是螢幕可是範圍高度的百分比*/
-            background-color: #251323;
+            background-color: rgb(0, 0, 0);
             position: absolute;
             top: 50px;
             left: -100%;
+            z-index: 2;
         }
         
         nav a {
@@ -72,9 +72,9 @@
             display: block;
             /*link變直排*/
             text-decoration: none;
-            color: #e4a9f0;
+            color: rgb(255, 255, 255);
             padding: 10px 20px;
-            border-bottom: 1px solid #e4a9f0;
+            border-bottom: 1px solid rgb(75, 77, 83);
         }
         
         #menu {
@@ -101,7 +101,7 @@
         }
         
         .footer {
-            background-color: rgb(52, 9, 58);
+            background-color: rgb(61, 44, 63);
             color: #aaa;
             text-align: center;
             padding: 10px 0;
@@ -116,12 +116,11 @@
         .title {
             margin: 0 0px 10px;
             padding: 20px 10px;
-            background-color: rgb(225, 179, 230);
+            background-color: rgb(179, 230, 217);
         }
         
-        .title p {
-            font-size: 18px;
-            text-align: center;
+        .title img {
+            width: 100%;
         }
         
         .item {
@@ -145,7 +144,7 @@
         
         .two {
             margin: 60px 0;
-            background-color: #ffa;
+            background-color: lightcyan;
         }
         
         @media screen and (min-width:768px) {
@@ -201,7 +200,7 @@
         .a {
             margin: 0 0px 10px;
             padding: 20px 10px;
-            background-color: rgb(170, 124, 255);
+            background-color: rgb(138, 148, 112);
         }
         
         .a p {
@@ -245,11 +244,11 @@
 </head>
 
 <body>
-    <input type="checkbox" name="" id="menu">
+    <input type="checkbox" id="menu">
 
     <div class="header">
         <h1 class="logo">
-            <a href="#"><img src="data:image/jpeg;base64,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"
+            <a href="#"><img src="data:image/png;base64,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"
                     width="50" height="50">
         </h1>
         <label for="menu" class="btn"> 
@@ -257,16 +256,16 @@
         </label>
         <nav>
             <a href="#1">隊伍介紹</a>
-            <a href="#2">人物介紹</a>
-            <a href="#3">生涯數據</a>
-            <a href="#4">生涯highlight</a>
+            <a href="#2">球員名單</a>
+            <a href="#3">熱門球員介紹</a>
+            <a href="#4">例行賽highlight</a>
         </nav>
     </div>
 
-    <marquee direction="right" height="40" scrollamount="5" behavior="alternate"><img src="https://upload.wikimedia.org/wikipedia/zh/b/ba/Philadelphia_76ers_Logo.png" height=40></marquee>
+    <marquee direction="right" height="40" scrollamount="5" behavior="alternate"><img src="https://s.yimg.com/zp/MerchandiseImages/CFB5BB5B53-SP-6573168.jpg" height=40></marquee>
 
     <div class="bg">
-        <img src=https://img.sportsv.net/img/article/cover/5/69415/fit-4tyOUPlx4m-1200x628.jpg>
+        <img src=https://i.epochtimes.com/assets/uploads/2020/01/76ers-GettyImages-1187440294-600x400.jpg>
     </div>
     <div class="a">
         <p>不因輸球而輕易放棄，即將成為聯盟新的霸主</p>
@@ -276,111 +275,90 @@
         <div class="item-group "></div>
         <div class="item ">
             <div class="pic ">
-                <img src="https://i.epochtimes.com/assets/uploads/2020/01/76ers-GettyImages-1187440294-600x400.jpg" height="400">
+                <img src="https://upload.wikimedia.org/wikipedia/zh/b/ba/Philadelphia_76ers_Logo.png">
             </div>
             <div class="text ">
-                <h3>隊伍介紹</h3>
-                <p>
-                    費城76人（英語：Philadelphia 76ers），是一支位於美國賓夕法尼亞州費城的NBA籃球隊，分屬於東區的大西洋組，主場為富國銀行中心球場。 費城76人是NBA中的老牌球隊，球隊前身為國家籃球聯盟（NBL）的雪城國民（Syracuse Nationals），成立於1946年，隨著國家籃球聯盟與美國籃球協會（BAA）的合併，於1949年加入合併後的NBA。雪城國民於1963年遷至費城，更名為現今的費城76人。球隊經常被簡稱為「76人」（Sixers）。 在76人隊的歷史上，出現過許多偉大的球星，比如威爾特·張伯倫、「J博士」朱利葉斯·歐文、摩西·馬龍、「惡漢」查爾斯·巴克利（Charles
-                    Barkley）和「答案」阿倫·艾弗森，還有哈爾·格瑞爾、比利·康寧漢姆、鮑比·瓊斯和莫里斯·奇克斯等功勛教練，正是在他們的帶領下，76人隊創造出一個個偉大的成績，在NBA的歷史中占有不可動搖的地位，而費城也成為全美最知名的籃球城市之一。
+                <a name="1">
+                    <h3>隊伍介紹</h3>
+                    <p>
+                        費城76人（英語：Philadelphia 76ers），是一支位於美國賓夕法尼亞州費城的NBA籃球隊，分屬於東區的大西洋組，主場為富國銀行中心球場。 費城76人是NBA中的老牌球隊，球隊前身為國家籃球聯盟（NBL）的雪城國民（Syracuse Nationals），成立於1946年，隨著國家籃球聯盟與美國籃球協會（BAA）的合併，於1949年加入合併後的NBA。雪城國民於1963年遷至費城，更名為現今的費城76人。球隊經常被簡稱為「76人」（Sixers）。 在76人隊的歷史上，出現過許多偉大的球星，比如威爾特·張伯倫、「J博士」朱利葉斯·歐文、摩西·馬龍、「惡漢」查爾斯·巴克利（Charles
+                        Barkley）和「答案」阿倫·艾弗森，還有哈爾·格瑞爾、比利·康寧漢姆、鮑比·瓊斯和莫里斯·奇克斯等功勛教練，正是在他們的帶領下，76人隊創造出一個個偉大的成績，在NBA的歷史中占有不可動搖的地位，而費城也成為全美最知名的籃球城市之一。
+
+                    </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </a>
+
+    <a name="2">
+        <div class="title ">
+            <h2>球員名單</h2>
+            <img src="https://scontent.ftpe1-3.fna.fbcdn.net/v/t1.15752-9/103617758_649655548956824_1566252005419710582_n.png?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=9alD37ph9kAAX9giAKL&_nc_ht=scontent.ftpe1-3.fna&oh=0f9e89c720585ddd536c70f4b388d1b9&oe=5F10A8A7" height="510">
+
+
+        </div>
+    </a>
+    <a name="3">
+
+
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://cdn.theathletic.com/app/uploads/2017/10/18113252/USATSI_10307548_168381809_lowres-1024x683.jpg">
+            </div>
+            <div class="text ">
+                <h3>Joel Hans Embiid</h3>
+                <p>恩比德出生於喀麥隆共和國的首都雅溫德，他的父親湯瑪斯·恩比德（Thomas Embiid）是一名愛好打手球的軍官，原打算將恩比德送到歐洲培養成職業排球員，但他在十五歲的時候參加了由NBA球員盧克·巴莫特舉辦的籃球訓練營，而這場訓練營從此改變了他的未來。穆巴姆特和恩比德兩人有著亦師亦友的關係，他在恩比德身上看到了無限的潛力，認為他將會成為未來的頂尖籃球員。於是決定提供經濟支援讓恩比德來美國唸高中。在十六歲時，恩比德從喀麥隆移居到美國，並下定決心要成為一名優秀的職業籃球員。
+                    抵達美國後，恩比德進入了盧克·巴莫特的母校－蒙特沃德學院接受正統籃球訓練，但由於得不到充足的上場時間，他只讀了一年便轉學至佛羅里達州蓋恩斯維爾的洛克高中。[3]作為一名高二生，恩比德場均能夠取得13.0分、9.7個籃板和1.9次阻攻，帶領校隊取得了33勝4敗的優秀戰績。 在Rivals.com的評價中，恩比德被評選為一名五星的準大學生，並於2012年11月進入堪薩斯大學就讀。
 
                 </p>
             </div>
         </div>
-    </div>
-    </div>
 
-
-    <a name="1">
-        <div class="title ">
-            <h2>球員介紹</h2>
-            <p>
-            </p>
-        </div>
-    </a>
-    <a name="2">
-        <div class="item-group ">
-
-            <div class="item ">
-                <div class="pic ">
-                    <img src="https://images6.alphacoders.com/912/912868.png">
-                </div>
-                <div class="text ">
-                    <h3>蜘蛛人 Spider-Man</h3>
-                    <p>彼得·班傑明·帕克（Peter Benjamin Parker）在一次課外活動中意外的被一隻受過放射性感染的蜘蛛咬傷後，獲得具有蜘蛛一般的特殊能力。改變彼得·帕克的一生，決定成為蜘蛛人的關鍵，就在於一場搶劫事故中皇后區的班叔（Uncle Ben）遭人殺害，彼得認為這是他的錯誤，因此選擇成為蜘蛛人來拯救世界上更多的人。李和迪特科將這個角色構想成一個被他的梅嬸嬸和班叔撫養長大的孤兒；並且，因為身為一個青少年，他除了面對那些超級英雄該肩負的責任，同時也必須應付一些青春期時普遍會遇到的麻煩。蜘蛛人的創造者們賦予了他超強的力量與敏捷性、能黏附在大部分表面上的能力、可以對危險快速做出反應的蜘蛛感應（Spider-Sense）以及讓他藉著使用自己發明並命名為「蛛網發射器」的裝置射出蜘蛛絲，使他得以對抗反派們。</p>
-                </div>
+        <div class="item ">
+            <div class="pic">
+                <img src="https://s3.amazonaws.com/phillyfrontoffice/wp-content/uploads/2019/10/01082929/Sixers-Media-Day-309-696x1044.jpg">
             </div>
-
-            <div class="item ">
-                <div class="pic">
-                    <img src="https://images6.alphacoders.com/939/939343.jpg">
-                </div>
-                <div class="text ">
-                    <h3>猛毒 Venom</h3>
-                    <p>《猛毒》（英語：Venom，中國大陸譯《毒液：致命守護者》，香港譯《毒魔》，新加坡譯《猛毒》）是一部於2018年上映的美國超級英雄電影，由漫威漫畫旗下角色猛毒故事改編，哥倫比亞影業製作，並由索尼影視娛樂發行。本片為「索尼影業漫威角色宇宙」的第一部電影，由魯賓·弗來舍執導，史考特·羅森堡、傑夫·皮克納、凱莉·馬賽爾和威爾·貝爾編劇，由湯姆·哈迪、蜜雪兒·威廉絲、里茲·阿邁德、史考特·荷茲和雷德·史考特主演。 有關猛毒電影的發展，首初是從2007年由製片人阿維·阿拉德開始。經過不同的疊代後，限制級獨立電影於在2017年3月被證實，目的是為了開創一個以索尼擁有電影版權的漫威漫畫角色的新共享宇宙，儘管索尼有意為《蜘蛛人：返校日》共享世界觀，這是由於索尼和漫威影業之間的特殊交易而在漫威電影宇宙中所設。2017年5月，弗來舍、哈迪加入電影，羅森堡和皮克納為電影編劇。主要攝影於2017年10月在亞特蘭大、紐約和舊金山進行。
-                        《猛毒》於2018年10月1日在西木區的攝政村影院首映，2018年10月5日在美國院線上映。續集預定於2021年6月25日在美國上映。
-                    </p>
-                </div>
-            </div>
-            <div class="item ">
-                <div class="pic ">
-                    <img src="https://images.alphacoders.com/994/994711.jpg">
-                </div>
-                <div class="text ">
-                    <h3>鋼鐵人 Iron-Man</h3>
-                    <p>東尼·史塔克生於紐約長島，父親為著名的企業兼發明家霍華·史塔克。小時候即展現驚人的天賦，僅15歲時就進入麻省理工學院電子工程學系大學部就讀，於19歲時以最高分的成績獲得雙碩士學位。21歲時他的雙親死於車禍意外（實際上是被九頭蛇洗腦後的酷寒戰士襲擊），史塔克繼承了父親擁有的史塔克企業（Stark Industries）。史塔克接管公司後作的第一件事就是買下製造他父母座車上瑕疵煞車系統的公司並修正其設計上的缺陷。 在一次前往越南（真人電影為波灣戰爭時）視察自己公司新的微型晶片對美軍在戰場上助益的旅程中，史塔克誤入陷阱而被俘虜。俘虜他的人是一個越南軍閥王秋，史塔克的心臟由於被陷阱的碎片插入而命在旦夕，唯一的活路就是和同為俘虜的著名物理學家何伊沈）合作為王秋製造武器。不過史塔克與伊沈私下利用工廠祕密設計並製造了一套動力裝甲，這一副鐵製外骨骼式護甲賦予史塔克巨大的力量與其他能力，不但能讓他的心臟繼續跳動，還可以讓他逃脫。伊沈犧牲自己的生命讓史塔克有足夠的時間換上這副笨重的裝甲，成為鋼鐵人的史塔克則殺死了王秋與其手下。
-                        在逃亡的途中，鋼鐵人遇見了一名受傷的美國空軍直升機飛行員吉姆羅德斯（Jim Rhodes），鋼鐵人自稱是史塔克的保鏢，兩人合力抵禦尾隨而來的北越追兵直到抵達美軍前線。 在回到美國本土後史塔克繼續改良這副裝甲，建立起冒險家與鋼鐵人的雙重身份。他並且大幅的拓展了父親留下來的史塔克企業，後來改名為史塔克國際企業（Stark International）。</p>
-                </div>
-            </div>
-            <div class="item ">
-                <div class="pic ">
-                    <img src="https://images4.alphacoders.com/673/673851.jpg">
-                </div>
-                <div class="text ">
-                    <h3>雷神索爾</h3>
-                    <p>《雷神索爾》（英語：Thor，中國大陸譯《雷神》，香港譯《雷神奇俠》）是一部於2011年上映的美國超級英雄電影，由肯尼斯·布萊納執導，艾許利·米勒、柴克·史坦茲與唐·佩恩編劇，劇情圍繞著漫威漫畫旗下超級英雄索爾展開。該片由漫威工作室製作，並由派拉蒙影業發行，為漫威電影宇宙系列中的第四部作品。《雷神索爾》的主演包含克里斯·漢斯沃、娜塔莉·波曼、湯姆·希德斯頓、史戴倫·史柯斯嘉、科魯姆·費奧瑞、雷·史蒂文森、伊卓瑞斯·艾巴、凱特·丹寧絲、蕾妮·羅素與安東尼·霍普金斯等人，劇情講述神界阿斯嘉的儲君索爾在重新點燃一場古老戰役後，被剝奪一切並放逐到地球，其弟洛基企圖趁機篡奪王位，索爾必須證明自己配得上雷神之鎚，重拾雷神的力量。
-                        1991年，山姆·萊米開始籌拍該片，但很快就放棄。《雷神索爾》從此被擱置了多年，製片進度一直到了2006年才有起色。馬修·范恩是該片最初的導演，但後來因合約到期而換成肯尼斯·布萊納。選角作業於2008年10月至2011年1月間進行。《雷神索爾》於2010年1月開拍，同年5月殺青，取景地點主要位在美國加利福尼亞州和新墨西哥州。該片在後期製作中轉為3D。 《雷神索爾》於2011年4月17日在澳洲的雪梨首映，接著於5月6日在美國院線上映。該片所獲評價整體而言偏向正面，影評人多稱讚漢斯沃、艾巴與荷普金斯的演技和片中特效，而部分情節、設計則遭影評人詬病。該片也相當賣座，全球總票房逾4.49億美元。續集《雷神索爾2：黑暗世界》於2013年11月8日在北美院線上映。
-
-                    </p>
-                </div>
+            <div class="text ">
+                <h3>Ben Simmons</h3>
+                <p>班傑明·大衛·西蒙斯（英語：Benjamin David Simmons，1996年7月20日－）通稱班·西蒙斯（Ben Simmons）。澳大利亞職業籃球運動員。現效力於NBA聯盟費城76人。來自於澳洲的西蒙斯擁有禁區球員的體型，但因為靈活的身手與視野，在場上擔任控球後衛，並是NBA史上身高最高的控球後衛。大學時期在路易斯安那州立大學打了一年大學籃球，以全能身手獲選為NCAA全美共識第一隊並入選USBWA年度最佳新人。因為他在新秀賽季出色的表現，使他被譽為雷霸龍·詹姆士的接班人。
+                    西蒙斯出生於墨爾本，在新南威爾斯州的紐卡斯爾長大。在進入美國佛羅里達州的蒙特沃德學院前就讀於博士山高中。在路易斯安那州立大學的唯一一個賽季，他們並沒有打進NCAA第一級錦標賽。西蒙斯在2016年NBA選秀大會中被費城76人選中，成為自安德魯·波格特及凱里·厄文後聯盟第三位澳大利亞籍的選秀狀元。及後西蒙斯宣布選擇了25號為球衣號碼[2]。此外，他亦是澳洲國家男子籃球隊的成員。於2016–17賽季開始前，西蒙斯於一次練習中右足受傷因而錯過整個2016–17賽季。
+                    擁有美國和澳大利亞的雙重國籍，西蒙斯選擇成為澳大利亞國家男子籃球隊的成員。
+                </p>
             </div>
         </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://twgreatdaily.com/images/elastic/KO6/KO6QdnABgx9BqZZI7KCa.jpg">
+            </div>
+            <div class="text ">
+                <h3>Tobias John Harris</h3>
+                <p>托比亞斯·約翰·哈里斯（英語：Tobias John Harris，1992年7月15日－），美國NBA聯盟的職業籃球運動員，因其球風激似Carmelo Anthony，而有小甜瓜之稱。哈里斯在2011年的NBA選秀中於第1輪第19順位被夏洛特山貓所選中。</p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Al_Horford_Nov_2013.jpg/800px-Al_Horford_Nov_2013.jpg">
+            </div>
+            <div class="text ">
+                <h3>Alfred Joel Horford</h3>
+                <p>艾爾弗雷德·喬爾·霍福德（英語：Alfred Joel Horford，1986年6月3日－），多米尼加職業籃球員，目前效力於NBA費城七六人。霍福德來自佛羅里達大學，場上位置為大前鋒，同時亦能串演中鋒。他也是前NBA球員蒂圖·霍福德的兒子。霍福德出生於多明尼加的普拉塔港。他的父親蒂圖在NBA和海外打了三年的籃球。霍福德從小看著他父親打球，因此逐漸愛上了籃球。他最喜歡的籃球員有格蘭特·希爾、提姆·鄧肯及俠客·歐尼爾。在2000年的夏天，霍福德和他的家人搬到了密西根州蘭辛市。
+                </p>
+            </div>
+        </div>
+
     </a>
 
 
-    <a name="3">
-        <div class=video-container>
-            <iframe width="853" height="480" src="https://www.youtube.com/embed/gWsJGM3MqVk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="p ">
-            <h3>漫威告別蜘蛛俠：你需要知道的三個問題</h3>
-            <p>「蜘蛛俠」要告別目前的漫威宇宙了。索尼（Sony）公司表示，對未來無法與迪士尼（Disney）繼續合作《蜘蛛俠》系列電影表示「失望」。 而這意味著我們在漫威（Marvel）今後的電影中可能無法再看到湯姆·赫蘭德（Tom Holland，又譯霍蘭德）的身影。 《蜘蛛俠》電影版權歸索尼所有，但作為一個超級英雄，湯姆·赫蘭德飾演的蜘蛛俠也出現在漫威的《復仇者聯盟：終局之戰》（Avengers: Endgame）等電影中。這一切都是因為索尼與漫威影業所屬的迪士尼之間達成的協議，但雙方最近談判新協議時無法達成共識。
-                索尼稱，希望未來「或許發生變化」，並在推特上發表聲明，感謝漫威影業總裁凱文·費奇（Kevin Feige）的「幫助和指導」。
-                <br><br> 一、蜘蛛俠命運如何？
-                <br><br> 這個問題十分複雜。 首先簡單介紹一下蜘蛛俠。他是漫威漫畫中的一個角色，但1999年索尼買下了《蜘蛛俠》的電影版權。 在此之前，索尼已經製作五部以蜘蛛俠為主人公的電影，其中三部由托比·馬奎爾（Tobey Maguire）主演，兩部由安德魯·加菲爾德（Andrew Garfield）主演。 2015年，索尼與迪士尼及漫威影業達成意向協議，從此將彼得·帕克（Peter Parker）和他的蜘蛛俠身份一同帶入漫威宇宙。這份協議使得迪士尼可以共同製作《蜘蛛俠》電影，並與索尼共享影片收入。
-                之後蜘蛛俠出現在以下五部漫威電影中： 《美國隊長：英雄內戰》（Captain America: Civil War） 《蜘蛛俠：英雄歸來》（Spider-Man: Homecoming，又譯作《返校日》、《強勢回歸》） 《復仇者聯盟：無限之戰》（Avengers: Infinity War） 《復仇者聯盟：終局之戰》 《蜘蛛俠：英雄遠征》（Spider-Man: Far From Home，又譯作《決戰千里》、《離家日》）
-                <br><br> 二、《蜘蛛俠》電影今後命運如何？
-                <br><br> 這並不代表我們不會再見到湯姆·赫蘭德版的《蜘蛛俠》。BBC廣播一台（Radio 1）及1Xtra的電影評論員阿里·普拉姆（Ali Plumb）指出，湯姆與索尼仍有兩部電影合約在手，因此「這並不意味著我們再也看不到他了」，但接下來的電影可能會有些不一樣。 「新的索尼獨立製作的《蜘蛛俠》電影會面臨更大挑戰，他們的風險在於是否會跟之前迪士尼製作的《蜘蛛俠》電影一樣好看。」但他認為，這對索尼也是一個機會，即便索尼現在不能再使用漫威宇宙的其他超級英雄角色，他們仍然可以做更多「冒險性」與「前衛」的嘗試。
-                索尼不擁有其他任何迪士尼漫威角色的版權，因此未來鋼鐵俠（Iron Man，又譯鋼鐵人）、美國隊長、雷神索爾（Thor）、綠巨人浩克（Hulk，又譯變形俠醫）及其他超級英雄應該不會出現在《蜘蛛俠》電影中。 娛樂新聞網站Deadline報道稱，過去數月間迪士尼與索尼無法就一系列電影今後的資金條款達成一致。 而漫威在上月動漫展（Comic-Con）期間公布的下階段影片計劃上，也沒有《蜘蛛俠》的身影。
-                <br><br> 三、漫威世界有何反應？
-                <br><br> 「鷹眼」（Hawkeye）的扮演者傑瑞米·雷納（Jeremy Renner）在Instagram上發帖，呼籲「蜘蛛俠」重回漫威。另一個超級英雄「死侍」（Deadpool）的扮演者萊恩·雷諾茲（Ryan Reynolds）也在推特上提到此事。有粉絲問他是否能看到「蜘蛛俠」與「死侍」共同出現的電影，他回答稱，「可以，但只能在我心裏」。索尼與迪士尼的分裂同時還在網民中間引發巨大反應，不少人對索尼表示憤怒，也有粉絲擔心湯姆·赫蘭德狀態。 一些人開始發起話題「抵制索尼」（#BoycottSony），稱他們不會支持今年漫威的其他影片。同時，「拯救蜘蛛俠」（#SaveSpidey）的話題也開始在網上積累人氣。
-                許多粉絲還開始轉發去年去世的蜘蛛俠創造者斯坦·李（Stan Lee，又譯史丹‧李）的一則推文，推文中稱湯姆·赫蘭德是「蜘蛛俠」的絶佳人選，並問道「我的朋友湯姆最近怎麼樣？」（How is my friend Tom doing?）
-            </p>
-        </div>
-    </a>
 
     <a name="4">
-        <div class=video-container>
-            <iframe width="1045" height="434" src="https://www.youtube.com/embed/ZrB7EdfPBJU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="p ">
-            <h3>影片觀賞</h3>
-            <p>相信這集是大家最感動的一幕，最後再讓大家回味一下。</p>
-        </div>
-    </a>
 
+        <div class=video-container>
+            <iframe width="924" height="520" src="https://www.youtube.com/embed/RJwE3yCx9Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </a>
+    </div>
     <div class="footer ">
-        &copy; 漫威辦權所有，想看完整版去購買，支持正版。
+        <p> NBA著作權所有 &copy; nba.com All Rights Reserved.</p>
     </div>
 
 
