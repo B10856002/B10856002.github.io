@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWD github final</title>
+    <style type="text/css">
+        * {
+            /*消除網頁邊框*/
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .header {
+            height: 50px;
+            background-color: rgb(0, 0, 0);
+            position: relative;
+        }
+        
+        .btn {
+            width: 40px;
+            height: 40px;
+            display: block;
+            /*規定元入以區塊方式呈現*/
+            position: absolute;
+            /*相對於他的父元素進行絕對定位*/
+            top: 5px;
+            right: 10px;
+        }
+        
+        .btn span {
+            opacity: 0;
+            /*區塊內透明*/
+            width: 1px;
+            height: 1px;
+            display: block;
+            overflow: hidden;
+            /*自動隱藏超出的文字或圖片*/
+        }
+        
+        .btn::before {
+            /*在原本的元素「之前」加入內容*/
+            content: '';
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 30px;
+            background-color: rgb(255, 255, 255);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px rgb(255, 255, 255), 0px -8px 0px rgb(255, 255, 255);
+            /*影子*/
+        }
+        
+        nav {
+            width: 100%;
+            height: 80vh;
+            /*view height是螢幕可是範圍高度的百分比*/
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            top: 50px;
+            left: -100%;
+            z-index: 2;
+        }
+        
+        nav a {
+            /*設置裡面的超連結*/
+            display: block;
+            /*link變直排*/
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border-bottom: 1px solid rgb(75, 77, 83);
+        }
+        
+        #menu {
+            position: absolute;
+            /*讓最上方的checkbox隱藏*/
+        }
+        
+        #menu:checked~.header nav {
+            left: 0;
+        }
+        
+        img {
+            vertical-align: bottom;
+        }
+        
+        .item-group {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+        }
+        
+        .bg img {
+            width: 100%;
+        }
+        
+        .footer {
+            background-color: rgb(61, 44, 63);
+            color: #aaa;
+            text-align: center;
+            padding: 10px 0;
+        }
+        
+        .title h2 {
+            text-align: center;
+            font-size: 36px;
+            margin: 0 0px 10px;
+        }
+        
+        .title {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(179, 230, 217);
+        }
+        
+        .title img {
+            width: 100%;
+        }
+        
+        .item {
+            margin: 0 10px 20px;
+        }
+        
+        .item .text h3 {
+            font-size: 24px;
+            text-align: left;
+        }
+        
+        .item .pic img {
+            /*設置全圖片*/
+            width: 100%;
+        }
+        
+        .item .b {
+            /*設置全圖片*/
+            width: 30%;
+        }
+        
+        .two {
+            margin: 60px 0;
+            background-color: lightcyan;
+        }
+        
+        @media screen and (min-width:768px) {
+            /*設定桌電及平板顯示*/
+            .item-group {
+                display: flex;
+                /*彈性盒子  又稱flexbox*/
+            }
+            .btn {
+                display: none;
+            }
+            .header {
+                display: flex;
+                justify-content: space-between;
+                /*分散對齊*/
+                align-items: center;
+            }
+            nav {
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+                /*透明顏色*/
+            }
+            nav a {
+                border-bottom: none;
+            }
+        }
+        
+        .two .item {
+            display: flex;
+            margin: 0;
+        }
+        
+        .two .item .pic,
+        .two .item .text {
+            width: 50%;
+            margin: 0;
+        }
+        
+        .two .item .text {
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+        
+        .a {
+            margin: 0 0px 10px;
+            padding: 20px 10px;
+            background-color: rgb(138, 148, 112);
+        }
+        
+        .a p {
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .p h3 {
+            font-size: 24px;
+            text-align: left;
+            margin: 20px 0px 10px;
+        }
+        
+        .p p {
+            margin: 0px 0px 20px;
+        }
+        
+        .p {
+            background-color: rgb(191, 191, 235);
+            color: rgb(35, 5, 63);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="menu">
+
+    <div class="header">
+        <h1 class="logo">
+            <a href="#"><img src="data:image/png;base64,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"
+                    width="50" height="50">
+        </h1>
+        <label for="menu" class="btn"> 
+            <span>選單</span>
+        </label>
+        <nav>
+            <a href="#1">隊伍介紹</a>
+            <a href="#2">球員名單</a>
+            <a href="#3">熱門球員介紹</a>
+            <a href="#4">例行賽highlight</a>
+        </nav>
+    </div>
+
+    <marquee direction="right" height="40" scrollamount="5" behavior="alternate"><img src="https://s.yimg.com/zp/MerchandiseImages/CFB5BB5B53-SP-6573168.jpg" height=40></marquee>
+
+    <div class="bg">
+        <img src=https://i.epochtimes.com/assets/uploads/2020/01/76ers-GettyImages-1187440294-600x400.jpg>
+    </div>
+    <div class="a">
+        <p>不因輸球而輕易放棄，即將成為聯盟新的霸主</p>
+    </div>
+
+    <div class="two ">
+        <div class="item-group "></div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://upload.wikimedia.org/wikipedia/zh/b/ba/Philadelphia_76ers_Logo.png">
+            </div>
+            <div class="text ">
+                <a name="1">
+                    <h3>隊伍介紹</h3>
+                    <p>
+                        費城76人（英語：Philadelphia 76ers），是一支位於美國賓夕法尼亞州費城的NBA籃球隊，分屬於東區的大西洋組，主場為富國銀行中心球場。 費城76人是NBA中的老牌球隊，球隊前身為國家籃球聯盟（NBL）的雪城國民（Syracuse Nationals），成立於1946年，隨著國家籃球聯盟與美國籃球協會（BAA）的合併，於1949年加入合併後的NBA。雪城國民於1963年遷至費城，更名為現今的費城76人。球隊經常被簡稱為「76人」（Sixers）。 在76人隊的歷史上，出現過許多偉大的球星，比如威爾特·張伯倫、「J博士」朱利葉斯·歐文、摩西·馬龍、「惡漢」查爾斯·巴克利（Charles
+                        Barkley）和「答案」阿倫·艾弗森，還有哈爾·格瑞爾、比利·康寧漢姆、鮑比·瓊斯和莫里斯·奇克斯等功勛教練，正是在他們的帶領下，76人隊創造出一個個偉大的成績，在NBA的歷史中占有不可動搖的地位，而費城也成為全美最知名的籃球城市之一。
+
+                    </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </a>
+
+    <a name="2">
+        <div class="title ">
+            <h2>球員名單</h2>
+            <img src="https://scontent.ftpe1-3.fna.fbcdn.net/v/t1.15752-9/103617758_649655548956824_1566252005419710582_n.png?_nc_cat=111&_nc_sid=b96e70&_nc_ohc=9alD37ph9kAAX9giAKL&_nc_ht=scontent.ftpe1-3.fna&oh=0f9e89c720585ddd536c70f4b388d1b9&oe=5F10A8A7" height="510">
+
+
+        </div>
+    </a>
+    <a name="3">
+
+
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://cdn.theathletic.com/app/uploads/2017/10/18113252/USATSI_10307548_168381809_lowres-1024x683.jpg">
+            </div>
+            <div class="text ">
+                <h3>Joel Hans Embiid</h3>
+                <p>恩比德出生於喀麥隆共和國的首都雅溫德，他的父親湯瑪斯·恩比德（Thomas Embiid）是一名愛好打手球的軍官，原打算將恩比德送到歐洲培養成職業排球員，但他在十五歲的時候參加了由NBA球員盧克·巴莫特舉辦的籃球訓練營，而這場訓練營從此改變了他的未來。穆巴姆特和恩比德兩人有著亦師亦友的關係，他在恩比德身上看到了無限的潛力，認為他將會成為未來的頂尖籃球員。於是決定提供經濟支援讓恩比德來美國唸高中。在十六歲時，恩比德從喀麥隆移居到美國，並下定決心要成為一名優秀的職業籃球員。
+                    抵達美國後，恩比德進入了盧克·巴莫特的母校－蒙特沃德學院接受正統籃球訓練，但由於得不到充足的上場時間，他只讀了一年便轉學至佛羅里達州蓋恩斯維爾的洛克高中。[3]作為一名高二生，恩比德場均能夠取得13.0分、9.7個籃板和1.9次阻攻，帶領校隊取得了33勝4敗的優秀戰績。 在Rivals.com的評價中，恩比德被評選為一名五星的準大學生，並於2012年11月進入堪薩斯大學就讀。
+
+                </p>
+            </div>
+        </div>
+
+        <div class="item ">
+            <div class="pic">
+                <img src="https://s3.amazonaws.com/phillyfrontoffice/wp-content/uploads/2019/10/01082929/Sixers-Media-Day-309-696x1044.jpg">
+            </div>
+            <div class="text ">
+                <h3>Ben Simmons</h3>
+                <p>班傑明·大衛·西蒙斯（英語：Benjamin David Simmons，1996年7月20日－）通稱班·西蒙斯（Ben Simmons）。澳大利亞職業籃球運動員。現效力於NBA聯盟費城76人。來自於澳洲的西蒙斯擁有禁區球員的體型，但因為靈活的身手與視野，在場上擔任控球後衛，並是NBA史上身高最高的控球後衛。大學時期在路易斯安那州立大學打了一年大學籃球，以全能身手獲選為NCAA全美共識第一隊並入選USBWA年度最佳新人。因為他在新秀賽季出色的表現，使他被譽為雷霸龍·詹姆士的接班人。
+                    西蒙斯出生於墨爾本，在新南威爾斯州的紐卡斯爾長大。在進入美國佛羅里達州的蒙特沃德學院前就讀於博士山高中。在路易斯安那州立大學的唯一一個賽季，他們並沒有打進NCAA第一級錦標賽。西蒙斯在2016年NBA選秀大會中被費城76人選中，成為自安德魯·波格特及凱里·厄文後聯盟第三位澳大利亞籍的選秀狀元。及後西蒙斯宣布選擇了25號為球衣號碼[2]。此外，他亦是澳洲國家男子籃球隊的成員。於2016–17賽季開始前，西蒙斯於一次練習中右足受傷因而錯過整個2016–17賽季。
+                    擁有美國和澳大利亞的雙重國籍，西蒙斯選擇成為澳大利亞國家男子籃球隊的成員。
+                </p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://twgreatdaily.com/images/elastic/KO6/KO6QdnABgx9BqZZI7KCa.jpg">
+            </div>
+            <div class="text ">
+                <h3>Tobias John Harris</h3>
+                <p>托比亞斯·約翰·哈里斯（英語：Tobias John Harris，1992年7月15日－），美國NBA聯盟的職業籃球運動員，因其球風激似Carmelo Anthony，而有小甜瓜之稱。哈里斯在2011年的NBA選秀中於第1輪第19順位被夏洛特山貓所選中。</p>
+            </div>
+        </div>
+        <div class="item ">
+            <div class="pic ">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Al_Horford_Nov_2013.jpg/800px-Al_Horford_Nov_2013.jpg">
+            </div>
+            <div class="text ">
+                <h3>Alfred Joel Horford</h3>
+                <p>艾爾弗雷德·喬爾·霍福德（英語：Alfred Joel Horford，1986年6月3日－），多米尼加職業籃球員，目前效力於NBA費城七六人。霍福德來自佛羅里達大學，場上位置為大前鋒，同時亦能串演中鋒。他也是前NBA球員蒂圖·霍福德的兒子。霍福德出生於多明尼加的普拉塔港。他的父親蒂圖在NBA和海外打了三年的籃球。霍福德從小看著他父親打球，因此逐漸愛上了籃球。他最喜歡的籃球員有格蘭特·希爾、提姆·鄧肯及俠客·歐尼爾。在2000年的夏天，霍福德和他的家人搬到了密西根州蘭辛市。
+                </p>
+            </div>
+        </div>
+
+    </a>
+
+
+
+    <a name="4">
+
+        <div class=video-container>
+            <iframe width="924" height="520" src="https://www.youtube.com/embed/RJwE3yCx9Nc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </a>
+    </div>
+    <div class="footer ">
+        <p> NBA著作權所有 &copy; nba.com All Rights Reserved.</p>
+    </div>
+
+
+</body>
+
+</html>
